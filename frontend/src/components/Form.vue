@@ -2,6 +2,7 @@
 <div id="app">
   <!-- {{ msg }} -->
 
+  <!-- Form submit new issue -->
   <form @submit.prevent="submitForm">  <!-- "createIssue" -->
 
     <div class="form-ui">
@@ -44,37 +45,13 @@
       </select>
     </div>
 
-    <div class="submit" id="submit">
+    <div class="form-ui" id="submit">
       <input type="submit" value="Submit" />
     </div>
 
-  <!--
-    <div class="row m-3">
-      <div class="col">
-        <input type="text" class="form-control col-3 mx-2" placeholder="User ID" v-model="issue.uid">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control col-3 mx-2" placeholder="Description" v-model="issue.description">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control col-3 mx-2" placeholder="Serial" v-model="issue.serial">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control col-3 mx-2" placeholder="indicator1" v-model="issue.indicator1">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control col-3 mx-2" placeholder="indicator2" v-model="issue.indicator2">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control col-3 mx-2" placeholder="indicator3" v-model="issue.indicator3">
-      </div>
-      <div class="col">
-        <button class="btn btn-success">Submit</button>
-      </div>   
-    </div>  
-    -->
   </form>
 
+  <!-- SHOW DATA ON TABLE -->
   <table class="table">
     <thead>
       <th>User ID</th>
@@ -134,7 +111,7 @@ export default {
 
     async getIssues(){
       var response = await fetch('http://127.0.0.1:8000/api/issues/') 
-      this.issue = await response.json();
+      this.issues = await response.json();
     },
 
     async createIssue(){

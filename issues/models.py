@@ -19,7 +19,7 @@ class Issue(models.Model):
     indicator2 = models.CharField(max_length=8, choices=Indicator_Status, default='off')
     indicator3 = models.CharField(max_length=8, choices=Indicator_Status, default='off')
     date_time = models.DateTimeField(auto_now_add=True)
-    response = models.CharField(max_length=140, default=None)
+    response = models.CharField(max_length=140, blank=True)
 
     def resolve(self):
         self.response = self.make_resolve()

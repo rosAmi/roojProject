@@ -99,7 +99,6 @@ div.form-ui {
   display: table-row;
 }
 
-label,
 input {
   display: table-cell;
   margin-bottom: 10px;
@@ -134,3 +133,34 @@ label {
 }
 
 </style>
+
+
+
+  <!--  Vid - bootstrap - form -- no axios
+  <form>
+    <div class="row m-3">
+      <div class="col">
+        <input type="text" class="form-control col-3 mx-2" placeholder="User ID" v-model="issue.uid">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Description" v-model="issue.description">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Serial" v-model="issue.serial">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control col-3 mx-2" placeholder="indicator1" v-model="issue.indicator1">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control col-3 mx-2" placeholder="indicator2" v-model="issue.indicator2">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control col-3 mx-2" placeholder="indicator3" v-model="issue.indicator3">
+      </div>
+      <div class="col">
+        <button class="btn btn-success">Submit</button>
+      </div>   
+    </div> 
+
+    </form> 
+    -->
