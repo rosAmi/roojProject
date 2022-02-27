@@ -9,6 +9,3 @@ router = routers.DefaultRouter()
 router.register('issues', IssuesViewSet)
 
 urlpatterns = router.urls
-
-# urlpatterns = [
-#   path('issues/', index) ]

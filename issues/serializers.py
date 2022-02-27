@@ -9,11 +9,3 @@ class IssuesSerializer(ModelSerializer):
         fields = ['id', 'uid', 'description', 'serial', 'indicator1', 'indicator2', 'indicator3',
                   'date_time', 'response']
 
-
-"""
-response = SerializerMethodField()
-    
-    def save(self, **kwargs):
-        print(self.validated_data)
-        return super().save(**kwargs)
-"""

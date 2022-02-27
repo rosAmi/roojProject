@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # import datetime
 # now = datetime.datetime.now()
 
@@ -27,8 +26,6 @@ class Issue(models.Model):
 
     def make_resolve(self):
         serial_num = self.serial[0:2]
-        print("s_num ", serial_num)
-        print("s_num type ", type(serial_num))
 
         def state_num(state):
             i_sum = 0
@@ -72,59 +69,3 @@ class Issue(models.Model):
     class Meta:
         ordering = ['uid']
 
-        """
-        # OLD LOGIC #
-        
-                def all_on():
-                    return self.indicator1 == "on" and self.indicator2 == "on" and self.indicator3 == "on"
-
-                def all_off():
-                    return self.indicator1 == "off" and self.indicator2 == "off" and self.indicator3 == "off"
-
-                def on_num():
-                    on_n = 0
-                    if self.indicator1 == "on":
-                        on_n = on_n + 1
-                    if self.indicator2 == "on":
-                        on_n = on_n + 1
-                    if self.indicator3 == "on":
-                        on_n = on_n + 1
-                    return on_n
-
-                def off_num():
-                    off_n = 0
-                    if self.indicator1 == "off":
-                        off_n = off_n + 1
-                    if self.indicator2 == "off":
-                        off_n = off_n + 1
-                    if self.indicator3 == "off":
-                        off_n = off_n + 1
-                    return off_n
-
-                def bl_num():
-                    bl = 0
-                    if self.indicator1 == "blinking":
-                        bl = bl + 1
-                    if self.indicator2 == "blinking":
-                        bl = bl + 1
-                    if self.indicator3 == "blinking":
-                        bl = bl + 1
-                    return bl
-                    
-        if "24" in s_num:
-            return "Please upgrade your device"
-        if "36" in s_num:
-            if off_num() == 3:
-                return "Turn on the device"
-            if bl_num() > 1:
-                return "Please wait"
-            if on_num() == 3:
-                return "All is ok"
-        if "51" in s_num:
-            if off_num() == 3:
-                return "Turn on the device"
-            if self.indicator1 == "blinking":
-                return "Please wait"
-            if on_num() > 0 and off_num() == 3 - on_num():
-                return "All is ok"
-        """
