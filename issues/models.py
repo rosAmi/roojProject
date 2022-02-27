@@ -1,7 +1,7 @@
 from django.db import models
 
-# import datetime
 
+# import datetime
 # now = datetime.datetime.now()
 
 
@@ -21,12 +21,14 @@ class Issue(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)
     response = models.CharField(max_length=140, blank=True)
 
-    def resolve(self):
+    def save(self, *args, **kwargs):
         self.response = self.make_resolve()
-        self.save()
+        super().save(*args, **kwargs)
 
     def make_resolve(self):
-        s_num = self.serial[0:1]
+        serial_num = self.serial[0:2]
+        print("s_num ", serial_num)
+        print("s_num type ", type(serial_num))
 
         def state_num(state):
             i_sum = 0
@@ -38,37 +40,37 @@ class Issue(models.Model):
                 i_sum += 1
             return i_sum
 
-        if "24" in s_num:
+            #  check  if all serial digits are numbers
+        if all(i.isdigit() for i in self.serial):
+            return "Bad serial number"
+
+        if "24" == serial_num:
             return "Please upgrade your device"
-        if "36" in s_num:
+        if "36" == serial_num:
             if state_num("off") == 3:
                 return "Turn on the device"
             if state_num("blinking") > 1:
                 return "Please wait"
             if state_num("on") == 3:
                 return "All is ok"
-        if "51" in s_num:
+            return "Serial 36, unknown resolve"
+        if '51' == serial_num:
             if state_num("off") == 3:
                 return "Turn on the device"
             if self.indicator1 == "blinking":
                 return "Please wait"
             if state_num("on") > 0 and state_num("off") == (3 - state_num("on")):
                 return "All is ok"
+            return "Serial 51, unknown resolve"
 
-        def is_all_num():
-            return all(i.isdigit() for i in self.serial)
-
-        if is_all_num():
-            return "Bad serial number"
-
-        return "Unknown device"
+        else:
+            return "Unknown device"
 
     def __str__(self):
         return self.description
 
     class Meta:
         ordering = ['uid']
-
 
         """
         # OLD LOGIC #

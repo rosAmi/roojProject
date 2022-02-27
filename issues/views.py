@@ -12,7 +12,7 @@ class IssuesViewSet(ModelViewSet):
 
 
 """
-def index(request):
+def index(request): 
     issues = []
 
     for issue in Issue.objects.all():
