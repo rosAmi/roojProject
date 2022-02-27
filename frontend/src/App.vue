@@ -12,7 +12,7 @@ export default {
   name: 'App',
   data() {
     return {
-      msg: ' Please fiil the form:'
+      msg: 'Please fill the form or double click an item for edit:'
     }
   },
   components: {

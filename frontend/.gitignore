@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 /dist
-Form1.vue
-Resolve.vue
+src/components/Form1.vue
+src/components/Resolve.vue
 
 # local env files
 .env.local
