@@ -64,8 +64,11 @@ class Issue(models.Model):
             return "Unknown device"
 
     def __str__(self):
-        return self.description
+        # return self.description  # original
+        return self
 
     class Meta:
         ordering = ['uid']
+        db_table = "user"   # Added
+        app_label = ''      # Added
 
