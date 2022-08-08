@@ -1,2 +1,4 @@
 # ignore ALL files in directory named venv
 venv/
+backend/settings_old.py
+venv/.env
