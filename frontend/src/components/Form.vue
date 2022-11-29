@@ -10,7 +10,7 @@
       <input type="text" v-model="issue.uid" placeholder="UID" name="id" id="id" required />
     </div>
     <div class="form-ui">
-      <label for="problem">Enter problem desciption: </label>
+      <label for="problem">Enter problem description: </label>
       <input type="text" v-model="issue.description" placeholder="Description" name="problem" id="problem" maxlength="300" required />
     </div>
     <div class="form-ui">

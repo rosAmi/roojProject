@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: mysql:8.0.21
+    ports:
+      - "30000:3306"
+    env_file: venv/.env
+    #environment:
+    #  MYSQL_ROOT_PASSWORD: mysql-root-password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    env_file: venv/.env
+    #entrypoint: ["./wait.sh"]
+    depends_on: #links:
+      - db
+    working_dir: "/app"
+    volumes:
+      - .:/app/
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
