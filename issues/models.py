@@ -64,8 +64,8 @@ class Issue(models.Model):
             return "Unknown device"
 
     def __str__(self):
-        # return self.description  # original
-        return self
+        return self.description
+        # return self  # -del, not a string
 
     class Meta:
         ordering = ['uid']
