@@ -69,6 +69,5 @@ class Issue(models.Model):
 
     class Meta:
         ordering = ['uid']
-        db_table = "user"   # Added
-        app_label = ''      # Added
-
+        # db_table = "user"   # Added ???_causes an error -del
+        # app_label = ''      # Added ???_causes an error -del
