@@ -1,13 +1,11 @@
 # Roojoom-Full-stack-task
-<---- RoojProj_MySQL
+<---- RoojProj
 
-Django + vueJS
-DB - MySQL
+Django + vueJS + MySQL DB
 ----
 Final project with 
- Django + MySQL + vueJS frontend -
+ Django + MySQL + vueJS frontend + Docker-compose
 
-DB- MySQL
 ----> master
 
 -----
