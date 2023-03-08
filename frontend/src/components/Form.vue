@@ -126,6 +126,7 @@ export default {
       });
       //this.issues.push(await response.json());
       await this.getIssues();
+      this.issue = {};
     },
 
     async editIssue(){
