@@ -1,0 +1,13 @@
+FROM node:14-alpine
+
+COPY ./frontend /vue_front
+WORKDIR /vue_front
+
+#RUN npm install -g npm
+
+#COPY ./frontend/package.json /vue_front
+#COPY ./frontend/package-lock.json /vue_front
+
+RUN npm install
+
+CMD ["npm", "run", "serve"]

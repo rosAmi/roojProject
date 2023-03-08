@@ -78,15 +78,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DATABASE'),
-        'USER': os.environ.get('MYSQL_USER'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
-        'HOST': os.environ.get('MYSQL_DATABASE_HOST'),
-        'PORT': os.environ.get('MYSQL_DATABASE_PORT'),
-    }
-
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('MYSQL_DATABASE', 'tech_db'),
+            'USER': os.environ.get('MYSQL_USER', 'mysql-user'),
+            'PASSWORD': os.environ.get('MYSQL_PASSWORD', 'mysql-pw'),
+            'HOST': os.environ.get('MYSQL_DATABASE_HOST', 'db'),
+            'PORT': os.environ.get('MYSQL_DATABASE_PORT', 3306),
+        }
 }
+
+# DATABASES = {   ## local db ##
+#     'default': {
+#                 'ENGINE': 'django.db.backends.mysql',
+#                 'NAME': 'tech_db',
+#                 'USER': 'mysql-user',
+#                 'PASSWORD': 'mysql-pw',
+#                 'HOST': 'localhost',
+#                 'PORT': '3306',
+#             }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
